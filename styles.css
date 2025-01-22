@@ -19,8 +19,8 @@ body {
     left: 20px;
     border-radius: 50%;
     overflow: hidden;
-    width: 100px;
-    height: 100px;
+    width: 80px;
+    height: 80px;
 }
 
 .header .profile-image img {
@@ -60,4 +60,34 @@ ul {
     position: fixed;
     bottom: 0;
     width: 100%;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .header {
+        padding: 10px;
+    }
+
+    .header .profile-image {
+        width: 60px;
+        height: 60px;
+        top: 5px;
+        left: 10px;
+    }
+
+    .container {
+        padding: 10px;
+    }
+
+    .section h2 {
+        font-size: 1.2em;
+    }
+
+    ul {
+        padding-left: 15px;
+    }
+
+    .footer {
+        font-size: 0.9em;
+    }
 }
