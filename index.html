@@ -1,94 +1,594 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio - Usman Anwar</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Usman Anwar</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: rgb(0, 0, 33);
+            color: white;
+            font-family: "Poppins", sans-serif;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+            background-color: rgb(40, 40, 60);
+            padding: 0 60px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .left {
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .right ul {
+            display: flex;
+            gap: 32px;
+        }
+
+        nav li {
+            list-style: none;
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: #fff;
+            cursor: pointer;
+            transition: color 0.2s, background 0.2s;
+            padding: 8px 16px;
+            border-radius: 4px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+        }
+
+        nav li:hover {
+            background: rgba(159, 85, 228, 0.15);
+            color: rgb(159, 85, 228);
+            font-size: 1.02rem;
+        }
+
+        main {
+            padding-top: 70px;
+            padding-bottom: 80px;
+        }
+
+        .firstSection {
+            display: flex;
+            justify-content: space-around;
+            margin: 80px 0;
+            align-items: center;
+        }
+
+        .leftSection {
+            font-size: 3rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 250px;
+        }
+
+        .rightSection img {
+            width: 400px;
+            height: 400px;
+            max-width: 100%;
+            max-height: 100%;
+            border-radius: 50%;
+            margin: 0 20px;
+            box-shadow: 0 4px 24px rgba(159, 85, 228, 0.15);
+            background: #222;
+            display: block;
+            object-fit: contain;
+        }
+
+        @media (max-width: 768px) {
+            .rightSection img {
+                width: 150px;
+                height: 150px;
+            }
+
+            .firstSection {
+                flex-direction: column;
+                text-align: center;
+                gap: 20px;
+            }
+
+            .leftSection {
+                font-size: 2rem;
+                height: auto;
+            }
+        }
+
+        .purple {
+            color: rgb(159, 85, 228);
+        }
+
+        #element {
+            color: rgb(159, 85, 228);
+        }
+
+        .secondSection {
+            max-width: 80%;
+            margin: 120px auto 60px auto;
+            padding: 20px;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .projectsSection {
+            max-width: 80%;
+            margin: 120px auto 60px auto;
+            padding: 20px;
+            opacity: 0;
+            transform: translateY(80px) scale(0.95);
+            transition: opacity 1.2s ease-out, transform 1.2s ease-out;
+        }
+
+        .techStackSection,
+        .contactSection {
+            max-width: 80%;
+            margin: 120px auto 60px auto;
+            padding: 20px;
+        }
+
+        .secondSection.visible,
+        .projectsSection.visible {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+
+        .secondSection h2,
+        .projectsSection h2,
+        .contactSection h2,
+        .techStackSection h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: rgb(159, 85, 228);
+            text-align: center;
+        }
+
+        .secondSection p,
+        .projectsSection p,
+        .contactSection p,
+        .techStackSection p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .secondSection .highlight,
+        .projectsSection .highlight,
+        .techStackSection .highlight {
+            color: rgb(159, 85, 228);
+            font-weight: 600;
+        }
+
+        .secondSection .emoji,
+        .projectsSection .emoji,
+        .contactSection .emoji,
+        .techStackSection .emoji {
+            margin-right: 10px;
+        }
+
+        .projectsSection .project {
+            margin-bottom: 30px;
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+            opacity: 0.2;
+            transform: translateY(60px) scale(0.95);
+            transition: opacity 1.5s ease-out, transform 1.5s ease-out;
+        }
+
+        .projectsSection .project.visible {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+
+        .projectsSection .project:nth-child(2) {
+            transition-delay: 0.4s;
+        }
+
+        .projectsSection .project:nth-child(3) {
+            transition-delay: 0.8s;
+        }
+
+        .projectsSection .project:nth-child(4) {
+            transition-delay: 1.2s;
+        }
+
+        .projectsSection .project:nth-child(5) {
+            transition-delay: 1.6s;
+        }
+
+        .projectsSection .project:nth-child(6) {
+            transition-delay: 2.0s;
+        }
+
+        .projectsSection .project img {
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 4px 16px rgba(159, 85, 228, 0.15);
+            background: #222;
+        }
+
+        .projectsSection .project h3 {
+            font-size: 1.5rem;
+            color: rgb(159, 85, 228);
+            margin-bottom: 10px;
+        }
+
+        .projectsSection .project a,
+        .contactSection a,
+        footer a {
+            color: rgb(159, 85, 228);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .projectsSection .project a:hover,
+        .contactSection a:hover,
+        footer a:hover {
+            color: rgb(200, 150, 255);
+        }
+
+        .projectsSection .project-content {
+            flex: 1;
+        }
+
+        .contactSection .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .contactSection .contact-item span {
+            margin-right: 10px;
+        }
+
+        .techStackSection .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .techStackSection .tech-stack img {
+            height: 30px;
+            vertical-align: middle;
+        }
+
+        footer {
+            background-color: rgb(20, 20, 40);
+            padding: 20px;
+            text-align: center;
+            font-size: 1rem;
+            color: #ccc;
+        }
+
+        footer .footer-links {
+            margin-bottom: 10px;
+        }
+
+        footer .footer-links a {
+            margin: 0 15px;
+            font-size: 1rem;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        @media (max-width: 768px) {
+
+            .secondSection,
+            .projectsSection,
+            .contactSection,
+            .techStackSection {
+                max-width: 90%;
+                margin: 80px auto 40px auto;
+            }
+
+            .secondSection h2,
+            .projectsSection h2,
+            .contactSection h2,
+            .techStackSection h2 {
+                font-size: 2rem;
+            }
+
+            .secondSection p,
+            .projectsSection p,
+            .contactSection p,
+            .techStackSection p {
+                font-size: 1rem;
+            }
+
+            .projectsSection .project {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .projectsSection .project img {
+                width: 100px;
+                height: 100px;
+            }
+
+            .projectsSection .project h3 {
+                font-size: 1.3rem;
+            }
+
+            .projectsSection .project:nth-child(2) {
+                transition-delay: 0.3s;
+            }
+
+            .projectsSection .project:nth-child(3) {
+                transition-delay: 0.6s;
+            }
+
+            .projectsSection .project:nth-child(4) {
+                transition-delay: 0.9s;
+            }
+
+            .projectsSection .project:nth-child(5) {
+                transition-delay: 1.2s;
+            }
+
+            .projectsSection .project:nth-child(6) {
+                transition-delay: 1.5s;
+            }
+
+            .techStackSection .tech-stack img {
+                height: 25px;
+            }
+
+            footer {
+                padding: 15px;
+                font-size: 0.9rem;
+            }
+
+            footer .footer-links a {
+                margin: 0 10px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
 </head>
+
 <body>
-    <div class="header">
-        <div class="profile-image">
-            <img src="image.jpg" alt="Usman Anwar">
-        </div>
-        <h1>Usman Anwar</h1>
-        <p>Quality Assurance Specialist, Beginner Python Developer, and Java Developer</p>
-    </div>
-
-    <div class="container">
-        <div class="section contact">
-            <div>
-                <strong>Address:</strong> Hussnia Colony, Gojra Street #5
+    <header>
+        <nav>
+            <div class="left">Usman Anwar</div>
+            <div class="right">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#tech-stack">Tech Stack</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
             </div>
-            <div>
-                <strong>Phone:</strong> 0310-1625477
-            </div>
-            <div>
-                <strong>Email:</strong> F223660@cfd.nu.edu.pk
-            </div>
-            <div>
-                <strong>GitHub:</strong> <a href="https://github.com/Usman3660" target="_blank">github.com/Usman3660</a>
-            </div>
-        </div>
+        </nav>
+    </header>
 
-        <div class="section">
-            <h2>About</h2>
-            <p>Beginner Python, Java, and C++ Developer and Quality Assurance Specialist with hands-on experience in designing and executing test plans, automating test processes, and ensuring software quality. Proficient in using modern testing tools like Selenium and JUnit. Adept in Agile workflows, with strong analytical skills and attention to detail to identify and resolve software bugs efficiently.</p>
-        </div>
+    <main>
+        <section class="firstSection" id="home">
+            <div class="leftSection">
+                Hi, My Name is <span class="purple">Usman Anwar</span>
+                <div>and I am a </div>
+                <span id="element"></span>
+            </div>
+            <div class="rightSection">
+                <img src="profilephoto.jpg" alt="Usman Anwar">
+            </div>
+        </section>
 
-        <div class="section">
-            <h2>Skills</h2>
-            <ul>
-                <li>Proficiency in Java </li>
-                <li>Beginner Python Developer</li>
-                <li>Test planning and execution</li>
-                <li>Automation tools: Selenium, JUnit</li>
-                <li>Agile/Scrum workflows</li>
-                <li>Defect tracking and resolution</li>
-                <li>Strong analytical and problem-solving</li>
-                
-            </ul>
-        </div>
+        <section class="secondSection" id="about">
+            <h2>About Me</h2>
+            <p><span class="emoji">💻</span> <span class="highlight">MERN Stack Developer</span><br>
+                I’m a dedicated MERN Stack Developer specializing in building dynamic, user-focused web applications
+                with JavaScript and modern frameworks.</p>
+            <p><span class="emoji">🛠</span> <span class="highlight">Current Work</span><br>
+                Developing a voice-controlled chatbot and exploring data science to enhance application functionality.
+            </p>
+            <p><span class="emoji">👥</span> <span class="highlight">Collaboration</span><br>
+                Open to partnering on projects involving chatbot development, automation, or scalable web solutions.</p>
+            <p><span class="emoji">🌱</span> <span class="highlight">Learning</span><br>
+                Advancing my Python skills to improve chatbot performance and system integration.</p>
+            <p><span class="emoji">💬</span> <span class="highlight">Expertise</span><br>
+                Proficient in Java, C++, Python, and software engineering principles. Let’s talk tech!</p>
+        </section>
 
-        <div class="section">
+        <section class="projectsSection" id="projects">
             <h2>Projects</h2>
-            <p><strong>Software Engineering Student</strong> - FAST NUCES, CFD</p>
-            <ul>
-                <li>Developed a Virtual Voice Assistant in Python.</li>
-                <li>Created a complete Arabic Text Editor in Java using MariaDB for database management.</li>
-                <li>Console-based Hospital Management System in C++</li>
-                <li>Console-based Dicnionary in C++</li>
-                <li>Developed a Railway Management System in c# using Oracle 11g for database management. </li>
-                <li>Developed and executed test plans for unit, integration.</li>
-                <li>Developed a UI testing framework.</li>
-                <li>Developed a Unit testing framework.</li>
-                <li>Automated repetitive testing using Selenium and TestNG, reducing manual effort by 100%.</li>
-                <li>Documented and tracked bugs, collaborating with developers for timely resolution.</li>
-                <li>Performed quality assurance tests to discover errors and optimize usability.</li>
-                
-            </ul>
-        </div>
+            <div class="project">
+                <img src="https://images.unsplash.com/photo-1557821552-17105176677c" alt="Fashion Spot">
+                <div class="project-content">
+                    <h3>Fashion Spot</h3>
+                    <p>A modern e-commerce platform for fashion enthusiasts, built using the MERN stack with a
+                        microservices architecture. Features include secure user authentication, intuitive product
+                        browsing, and a responsive frontend for a seamless shopping experience.<br>
+                        <a href="https://github.com/Usman3660/Fashion-Spot.git" target="_blank">View on GitHub</a>
+                    </p>
+                </div>
+            </div>
+            <div class="project">
+                <img src="virtual.jpg" alt="Virtual Assistant">
+                <div class="project-content">
+                    <h3>Virtual Assistant</h3>
+                    <p>A data science-driven virtual assistant leveraging natural language processing to enable
+                        voice-controlled interactions, designed to enhance user productivity and accessibility.<br>
+                        <a href="https://github.com/Usman3660/Virtual-Assistant.git" target="_blank">View on GitHub</a>
+                    </p>
+                </div>
+            </div>
+            <div class="project">
+                <img src="elect.png" alt="Electricity Demand Analytics">
+                <div class="project-content">
+                    <h3>Electricity Demand Analytics Pipeline</h3>
+                    <p>An end-to-end data analytics pipeline for electricity demand forecasting, featuring data merging,
+                        preprocessing, exploratory analysis, outlier detection, and regression modeling for accurate
+                        predictions.<br>
+                        <a href="https://github.com/Usman3660/electricity-demand-analytics-pipeline.git"
+                            target="_blank">View on GitHub</a>
+                    </p>
+                </div>
+            </div>
+            <div class="project">
+                <img src="deepfake.jpg" alt="Deepfake Audio Detection">
+                <div class="project-content">
+                    <h3>Deepfake Audio Detection</h3>
+                    <p>A Streamlit-based web application that detects deepfake audio using advanced machine learning
+                        techniques, providing users with a simple interface to verify audio authenticity.<br>
+                        <a href="#" target="_blank">View on GitHub (Link TBD)</a>
+                    </p>
+                </div>
+            </div>
+            <div class="project">
+                <img src="regis.jpg" alt="University Course Registration">
+                <div class="project-content">
+                    <h3>University Course Registration System</h3>
+                    <p>A web-based application built with the MERN stack to streamline university course enrollment.
+                        Features include student registration, course management, seat allocation, and administrative
+                        controls for an efficient academic experience.<br>
+                        <a href="https://github.com/Usman3660/CourseRegistrationPlatform.git" target="_blank">View on
+                            GitHub</a>
+                    </p>
+                </div>
+            </div>
+        </section>
 
-        <div class="section">
-            <h2>Education</h2>
-            <ul>
-                <li>Bachelor of Software Engineering: FAST NUCES CFD Campus (2022 - Present)</li>
-                <li>Intermediate (Pre-Engineering): Punjab College Gojra (2020 - 2022)</li>
-                <li>Metric: DMC Gojra (2018 - 2020)</li>
-            </ul>
-        </div>
+        <section class="techStackSection" id="tech-stack">
+            <h2>Tech Stack</h2>
+            <div class="tech-stack">
+                <img src="https://img.shields.io/badge/c++-%2300599C.svg?style=for-the-badge&logo=c%2B%2B&logoColor=white"
+                    alt="C++">
+                <img src="https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white"
+                    alt="HTML5">
+                <img src="https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=openjdk&logoColor=white"
+                    alt="Java">
+                <img src="https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E"
+                    alt="JavaScript">
+                <img src="https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54"
+                    alt="Python">
+                <img src="https://img.shields.io/badge/c-%2300599C.svg?style=for-the-badge&logo=c&logoColor=white"
+                    alt="C">
+                <img src="https://img.shields.io/badge/Oracle-F80000?style=for-the-badge&logo=oracle&logoColor=white"
+                    alt="Oracle">
+                <img src="https://img.shields.io/badge/.NET-5C2D91?style=for-the-badge&logo=.net&logoColor=white"
+                    alt=".NET">
+                <img src="https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white"
+                    alt="Node.js">
+                <img src="https://img.shields.io/badge/mysql-4479A1.svg?style=for-the-badge&logo=mysql&logoColor=white"
+                    alt="MySQL">
+                <img src="https://img.shields.io/badge/MariaDB-003545?style=for-the-badge&logo=mariadb&logoColor=white"
+                    alt="MariaDB">
+                <img src="https://img.shields.io/badge/Canva-%2300C4CC.svg?style=for-the-badge&logo=Canva&logoColor=white"
+                    alt="Canva">
+                <img src="https://img.shields.io/badge/figma-%23F24E1E.svg?style=for-the-badge&logo=figma&logoColor=white"
+                    alt="Figma">
+                <img src="https://img.shields.io/badge/numpy-%23013243.svg?style=for-the-badge&logo=numpy&logoColor=white"
+                    alt="NumPy">
+                <img src="https://img.shields.io/badge/pandas-%23150458.svg?style=for-the-badge&logo=pandas&logoColor=white"
+                    alt="Pandas">
+                <img src="https://img.shields.io/badge/Plotly-%233F4F75.svg?style=for-the-badge&logo=plotly&logoColor=white"
+                    alt="Plotly">
+                <img src="https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white"
+                    alt="GitHub">
+                <img src="https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white"
+                    alt="Git">
+                <img src="https://img.shields.io/badge/github%20actions-%232671E5.svg?style=for-the-badge&logo=githubactions&logoColor=white"
+                    alt="GitHub Actions">
+            </div>
+        </section>
 
-        <div class="section">
-            <h2>Languages</h2>
-            <ul>
-                <li>English</li>
-                <li>Urdu</li>
-            </ul>
-        </div>
-    </div>
+        <section class="contactSection" id="contact">
+            <h2>Contact Me</h2>
+            <div class="contact-item">
+                <span class="emoji">📧</span>
+                <p><span class="highlight">Email:</span> <a
+                        href="mailto:muhammadusmananwar50@gmail.com">muhammadusmananwar50@gmail.com</a></p>
+            </div>
+            <div class="contact-item">
+                <span class="emoji">📱</span>
+                <p><span class="highlight">Phone:</span> <a href="tel:+923426272845">+92 342 6272845</a></p>
+            </div>
+            <div class="contact-item">
+                <span class="emoji">📝</span>
+                <p><span class="highlight">Blog:</span> <a href="https://www.blogger.com/profile/02615588727835658873"
+                        target="_blank">Visit my Blog</a></p>
+            </div>
+            <div class="contact-item">
+                <span class="emoji">💻</span>
+                <p><span class="highlight">GitHub:</span> <a href="https://github.com/Usman3660"
+                        target="_blank">github.com/Usman3660</a></p>
+            </div>
+        </section>
+    </main>
 
-    <div class="footer">
-        <p>&copy; 2025 Usman Anwar. All Rights Reserved.</p>
-    </div>
+    <footer>
+        <div class="footer-links">
+            <a href="https://github.com/Usman3660" target="_blank">GitHub</a>
+            <a href="https://www.blogger.com/profile/02615588727835658873" target="_blank">Blog</a>
+        </div>
+        <p>&copy; 2025 Usman Anwar. All rights reserved.</p>
+    </footer>
+
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <script>
+        var typed = new Typed('#element', {
+            strings: ['Software Engineer', 'MERN Stack Developer', 'Data Scientist'],
+            typeSpeed: 50,
+            backSpeed: 30,
+            backDelay: 1000,
+            loop: true
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const sections = document.querySelectorAll('.secondSection, .projectsSection, .project');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    } else {
+                        entry.target.classList.remove('visible');
+                    }
+                });
+            }, {
+                threshold: 0.2,
+                rootMargin: '0px 0px -50px 0px'
+            });
+
+            sections.forEach(section => observer.observe(section));
+        });
+    </script>
 </body>
+
 </html>
