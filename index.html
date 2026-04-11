@@ -100,9 +100,11 @@
             border-radius: 50%;
             margin: 0 20px;
             box-shadow: 0 4px 24px rgba(159, 85, 228, 0.15);
-            background: #222;
+            border: 4px solid rgba(159, 85, 228, 0.45);
+            background: transparent;
             display: block;
-            object-fit: contain;
+            object-fit: cover;
+            object-position: center 20%;
         }
 
         @media (max-width: 768px) {
@@ -149,6 +151,9 @@
             transition: opacity 1.2s ease-out, transform 1.2s ease-out;
         }
 
+        .experienceSection,
+        .skillsSection,
+        .educationSection,
         .techStackSection,
         .contactSection {
             max-width: 80%;
@@ -163,7 +168,10 @@
         }
 
         .secondSection h2,
+        .experienceSection h2,
         .projectsSection h2,
+        .skillsSection h2,
+        .educationSection h2,
         .contactSection h2,
         .techStackSection h2 {
             font-size: 2.5rem;
@@ -173,7 +181,10 @@
         }
 
         .secondSection p,
+        .experienceSection p,
         .projectsSection p,
+        .skillsSection p,
+        .educationSection p,
         .contactSection p,
         .techStackSection p {
             font-size: 1.1rem;
@@ -182,17 +193,54 @@
         }
 
         .secondSection .highlight,
+        .experienceSection .highlight,
         .projectsSection .highlight,
+        .skillsSection .highlight,
+        .educationSection .highlight,
         .techStackSection .highlight {
             color: rgb(159, 85, 228);
             font-weight: 600;
         }
 
         .secondSection .emoji,
+        .experienceSection .emoji,
         .projectsSection .emoji,
+        .skillsSection .emoji,
+        .educationSection .emoji,
         .contactSection .emoji,
         .techStackSection .emoji {
             margin-right: 10px;
+        }
+
+        .experience-list,
+        .education-list,
+        .skills-list {
+            display: grid;
+            gap: 16px;
+        }
+
+        .experience-item,
+        .education-item,
+        .skill-item {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(159, 85, 228, 0.25);
+            border-radius: 10px;
+            padding: 16px;
+        }
+
+        .experience-item h3,
+        .education-item h3,
+        .skill-item h3 {
+            margin-bottom: 8px;
+            color: rgb(159, 85, 228);
+            font-size: 1.25rem;
+        }
+
+        .experience-item .meta,
+        .education-item .meta {
+            color: #d8d8f0;
+            font-size: 0.95rem;
+            margin-bottom: 8px;
         }
 
         .projectsSection .project {
@@ -202,7 +250,7 @@
             align-items: flex-start;
             opacity: 0.2;
             transform: translateY(60px) scale(0.95);
-            transition: opacity 1.5s ease-out, transform 1.5s ease-out;
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
         }
 
         .projectsSection .project.visible {
@@ -211,23 +259,23 @@
         }
 
         .projectsSection .project:nth-child(2) {
-            transition-delay: 0.4s;
+            transition-delay: 0.1s;
         }
 
         .projectsSection .project:nth-child(3) {
-            transition-delay: 0.8s;
+            transition-delay: 0.2s;
         }
 
         .projectsSection .project:nth-child(4) {
-            transition-delay: 1.2s;
+            transition-delay: 0.3s;
         }
 
         .projectsSection .project:nth-child(5) {
-            transition-delay: 1.6s;
+            transition-delay: 0.4s;
         }
 
         .projectsSection .project:nth-child(6) {
-            transition-delay: 2.0s;
+            transition-delay: 0.5s;
         }
 
         .projectsSection .project img {
@@ -310,7 +358,10 @@
         @media (max-width: 768px) {
 
             .secondSection,
+            .experienceSection,
             .projectsSection,
+            .skillsSection,
+            .educationSection,
             .contactSection,
             .techStackSection {
                 max-width: 90%;
@@ -318,14 +369,20 @@
             }
 
             .secondSection h2,
+            .experienceSection h2,
             .projectsSection h2,
+            .skillsSection h2,
+            .educationSection h2,
             .contactSection h2,
             .techStackSection h2 {
                 font-size: 2rem;
             }
 
             .secondSection p,
+            .experienceSection p,
             .projectsSection p,
+            .skillsSection p,
+            .educationSection p,
             .contactSection p,
             .techStackSection p {
                 font-size: 1rem;
@@ -346,23 +403,23 @@
             }
 
             .projectsSection .project:nth-child(2) {
-                transition-delay: 0.3s;
+                transition-delay: 0.1s;
             }
 
             .projectsSection .project:nth-child(3) {
-                transition-delay: 0.6s;
+                transition-delay: 0.2s;
             }
 
             .projectsSection .project:nth-child(4) {
-                transition-delay: 0.9s;
+                transition-delay: 0.3s;
             }
 
             .projectsSection .project:nth-child(5) {
-                transition-delay: 1.2s;
+                transition-delay: 0.4s;
             }
 
             .projectsSection .project:nth-child(6) {
-                transition-delay: 1.5s;
+                transition-delay: 0.5s;
             }
 
             .techStackSection .tech-stack img {
@@ -380,52 +437,52 @@
             }
 
             .projectsSection .project:nth-child(1) {
-    transition-delay: 0.2s;
+    transition-delay: 0.05s;
 }
 
 .projectsSection .project:nth-child(2) {
-    transition-delay: 0.6s;
+    transition-delay: 0.1s;
 }
 
 .projectsSection .project:nth-child(3) {
-    transition-delay: 1.0s;
+    transition-delay: 0.15s;
 }
 
 .projectsSection .project:nth-child(4) {
-    transition-delay: 1.4s;
+    transition-delay: 0.2s;
 }
 
 .projectsSection .project:nth-child(5) {
-    transition-delay: 1.8s;
+    transition-delay: 0.25s;
 }
 
 .projectsSection .project:nth-child(6) {
-    transition-delay: 2.2s;
+    transition-delay: 0.3s;
 }
 
 @media (max-width: 768px) {
     .projectsSection .project:nth-child(1) {
-        transition-delay: 0.2s;
+        transition-delay: 0.05s;
     }
 
     .projectsSection .project:nth-child(2) {
-        transition-delay: 0.5s;
+        transition-delay: 0.1s;
     }
 
     .projectsSection .project:nth-child(3) {
-        transition-delay: 0.8s;
+        transition-delay: 0.15s;
     }
 
     .projectsSection .project:nth-child(4) {
-        transition-delay: 1.1s;
+        transition-delay: 0.2s;
     }
 
     .projectsSection .project:nth-child(5) {
-        transition-delay: 1.4s;
+        transition-delay: 0.25s;
     }
 
     .projectsSection .project:nth-child(6) {
-        transition-delay: 1.7s;
+        transition-delay: 0.3s;
     }
 }
         }
@@ -440,8 +497,10 @@
                 <ul>
                     <li><a href="#home">Home</a></li>
                     <li><a href="#about">About</a></li>
+                    <li><a href="#experience">Experience</a></li>
                     <li><a href="#projects">Projects</a></li>
-                    <li><a href="#tech-stack">Tech Stack</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#education">Education</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </div>
@@ -462,18 +521,38 @@
 
         <section class="secondSection" id="about">
             <h2>About Me</h2>
-            <p><span class="emoji">💻</span> <span class="highlight">MERN Stack Developer</span><br>
-                I’m a dedicated MERN Stack Developer specializing in building dynamic, user-focused web applications
-                with JavaScript and modern frameworks.</p>
-            <p><span class="emoji">🛠</span> <span class="highlight">Current Work</span><br>
-                Developing a voice-controlled chatbot and exploring data science to enhance application functionality.
-            </p>
-            <p><span class="emoji">👥</span> <span class="highlight">Collaboration</span><br>
-                Open to partnering on projects involving chatbot development, automation, or scalable web solutions.</p>
-            <p><span class="emoji">🌱</span> <span class="highlight">Learning</span><br>
-                Advancing my Python skills to improve chatbot performance and system integration.</p>
-            <p><span class="emoji">💬</span> <span class="highlight">Expertise</span><br>
-                Proficient in Java, C++, Python, and software engineering principles. Let’s talk tech!</p>
+            <p><span class="emoji">💻</span> <span class="highlight">Software Engineering Student</span><br>
+                I am a Software Engineering student with hands-on experience in Data Science, Generative AI, REST
+                APIs, and MERN development.</p>
+            <p><span class="emoji">🚀</span> <span class="highlight">What I Build</span><br>
+                I have built full-stack and AI-focused systems including an e-commerce platform, virtual assistant,
+                deepfake audio detection system, code-to-doc generator, and recipe generation applications.</p>
+            <p><span class="emoji">🧠</span> <span class="highlight">Focus Areas</span><br>
+                I enjoy creating practical products at the intersection of software engineering, security, data
+                science, and intelligent systems.</p>
+        </section>
+
+        <section class="experienceSection" id="experience">
+            <h2>Experience</h2>
+            <div class="experience-list">
+                <div class="experience-item">
+                    <h3>Teaching Assistant - Software Project Management</h3>
+                    <p class="meta">National University of Computer and Emerging Sciences | Jan 2026 - Present</p>
+                    <p>Supporting project planning, software process understanding, and student mentoring in project
+                        management practices.</p>
+                </div>
+                <div class="experience-item">
+                    <h3>Web Developer Intern</h3>
+                    <p class="meta">Nexium (Remote) | 21 Jun 2025 - 2 Aug 2025</p>
+                    <p>Worked on web development tasks, feature implementation, and collaborative remote delivery.</p>
+                </div>
+                <div class="experience-item">
+                    <h3>Software Engineer Intern</h3>
+                    <p class="meta">IPS Technologies (Remote) | Jul 2025 - Sep 2025</p>
+                    <p>Contributed to software engineering tasks with focus on implementation quality and maintainable
+                        development workflows.</p>
+                </div>
+            </div>
         </section>
 
         <section class="projectsSection" id="projects">
@@ -491,13 +570,13 @@
             </div>
 
             <div class="project">
-                <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085" alt="Personal Portfolio">
+                <img src="regis.jpg" alt="Course Registration Platform">
                 <div class="project-content">
-                    <h3>Personal Portfolio</h3>
-                    <p>A responsive portfolio website showcasing my skills, projects, and contact information, built
-                        with HTML, CSS, and JavaScript. Features include smooth scrolling, Typed.js animations, and a
-                        modern dark theme with purple accents.<br>
-                        <a href="https://github.com/Usman3660/portfolio.git" target="_blank">View on GitHub </a>
+                    <h3>Course Registration Platform</h3>
+                    <p>A MERN-based system to streamline university course enrollment with student registration,
+                        course management, seat allocation, and administrative controls.<br>
+                        <a href="https://github.com/Usman3660/CourseRegistrationPlatform.git" target="_blank">View on
+                            GitHub</a>
                     </p>
                 </div>
             </div>
@@ -512,43 +591,53 @@
                 </div>
             </div>
             <div class="project">
-                <img src="elect.png" alt="Electricity Demand Analytics">
+                <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b" alt="Medical RAG Assistant">
                 <div class="project-content">
-                    <h3>Electricity Demand Analytics Pipeline</h3>
-                    <p>An end-to-end data analytics pipeline for electricity demand forecasting, featuring data merging,
-                        preprocessing, exploratory analysis, outlier detection, and regression modeling for accurate
-                        predictions.<br>
-                        <a href="https://github.com/Usman3660/electricity-demand-analytics-pipeline.git"
-                            target="_blank">View on GitHub</a>
+                    <h3>Medical RAG Assistant</h3>
+                    <p>A Retrieval-Augmented Generation medical assistant that retrieves trusted healthcare knowledge
+                        and answers symptom- and treatment-related informational queries via a Streamlit interface.<br>
+                        <a href="https://github.com/Usman3660" target="_blank">Repository/Profile</a>
                     </p>
                 </div>
             </div>
             <div class="project">
-                <img src="deepfake.jpg" alt="Deepfake Audio Detection">
+                <img src="https://images.unsplash.com/photo-1495546968767-f0573cca821e" alt="Kitchen AI">
                 <div class="project-content">
-                    <h3>Deepfake Audio Detection</h3>
-                    <p>A Streamlit-based web application that detects deepfake audio using advanced machine learning
-                        techniques, providing users with a simple interface to verify audio authenticity.<br>
-                        <a href="#" target="_blank">View on GitHub (Link TBD)</a>
+                    <h3>Kitchen AI - Recipe Generation</h3>
+                    <p>Fine-tuned GPT-2 on recipe data to generate context-aware cooking instructions from prompts and
+                        deployed a real-time Streamlit application.<br>
+                        <a href="https://kitchen-ai.streamlit.app/" target="_blank">Live Demo</a>
                     </p>
                 </div>
             </div>
             <div class="project">
-                <img src="regis.jpg" alt="University Course Registration">
+                <img src="https://images.unsplash.com/photo-1518770660439-4636190af475" alt="Food Classification with ViT">
                 <div class="project-content">
-                    <h3>University Course Registration System</h3>
-                    <p>A web-based application built with the MERN stack to streamline university course enrollment.
-                        Features include student registration, course management, seat allocation, and administrative
-                        controls for an efficient academic experience.<br>
-                        <a href="https://github.com/Usman3660/CourseRegistrationPlatform.git" target="_blank">View on
-                            GitHub</a>
+                    <h3>Food Classification using Vision Transformers</h3>
+                    <p>Fine-tuned ViT on the Food-101 dataset using transfer learning, mixed precision, and gradient
+                        accumulation for efficient training and deployment.<br>
+                        <a href="https://vit-food-classifier.streamlit.app/" target="_blank">Live Demo</a>
                     </p>
                 </div>
             </div>
         </section>
 
-        <section class="techStackSection" id="tech-stack">
-            <h2>Tech Stack</h2>
+        <section class="skillsSection" id="skills">
+            <h2>Skills</h2>
+            <div class="skills-list">
+                <div class="skill-item">
+                    <h3>Core Domains</h3>
+                    <p>Data Science, Generative AI, REST APIs, MERN Stack, Full-Stack Development, Security</p>
+                </div>
+                <div class="skill-item">
+                    <h3>Programming</h3>
+                    <p>JavaScript, Python, Java, C++, C</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="techStackSection">
+            <h2>Tools & Technologies</h2>
             <div class="tech-stack">
                 <img src="https://img.shields.io/badge/c++-%2300599C.svg?style=for-the-badge&logo=c%2B%2B&logoColor=white"
                     alt="C++">
@@ -591,6 +680,24 @@
             </div>
         </section>
 
+        <section class="educationSection" id="education">
+            <h2>Education</h2>
+            <div class="education-list">
+                <div class="education-item">
+                    <h3>BS Software Engineering</h3>
+                    <p class="meta">FAST NUCES | 2022 - 2026 (Continued)</p>
+                </div>
+                <div class="education-item">
+                    <h3>FSc Pre-Engineering</h3>
+                    <p class="meta">Punjab College Gojra | 2020 - 2022</p>
+                </div>
+                <div class="education-item">
+                    <h3>Matric</h3>
+                    <p class="meta">Divisional Model College Gojra | 2018 - 2020</p>
+                </div>
+            </div>
+        </section>
+
         <section class="contactSection" id="contact">
             <h2>Contact Me</h2>
             <div class="contact-item">
@@ -603,11 +710,6 @@
                 <p><span class="highlight">Phone:</span> <a href="tel:+923426272845">+92 342 6272845</a></p>
             </div>
             <div class="contact-item">
-                <span class="emoji">📝</span>
-                <p><span class="highlight">Blog:</span> <a href="https://www.blogger.com/profile/02615588727835658873"
-                        target="_blank">Visit my Blog</a></p>
-            </div>
-            <div class="contact-item">
                 <span class="emoji">💻</span>
                 <p><span class="highlight">GitHub:</span> <a href="https://github.com/Usman3660"
                         target="_blank">github.com/Usman3660</a></p>
@@ -618,15 +720,14 @@
     <footer>
         <div class="footer-links">
             <a href="https://github.com/Usman3660" target="_blank">GitHub</a>
-            <a href="https://www.blogger.com/profile/02615588727835658873" target="_blank">Blog</a>
         </div>
-        <p>&copy; 2025 Usman Anwar. All rights reserved.</p>
+        <p>&copy; 2026 Usman Anwar. All rights reserved.</p>
     </footer>
 
     <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
     <script>
         var typed = new Typed('#element', {
-            strings: ['Software Engineer', 'MERN Stack Developer', 'Data Scientist'],
+            strings: ['Software Engineer', 'MERN Stack Developer', 'AI and Data Science Enthusiast'],
             typeSpeed: 50,
             backSpeed: 30,
             backDelay: 1000,
@@ -634,7 +735,7 @@
         });
 
         document.addEventListener('DOMContentLoaded', function () {
-            const sections = document.querySelectorAll('.secondSection, .projectsSection, .project');
+            const sections = document.querySelectorAll('.secondSection, .experienceSection, .projectsSection, .skillsSection, .educationSection, .project');
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
